@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">SXL_APP</string>
+
+    <string name="btn_ok">確定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="btn_clean">清空</string>
+    <string name="btn_print">列印</string>
+    <string name="tt_hangmuc">項目</string>
+    <string name="tt_mvl">料號</string>
+    <string name="tt_ten">物料名稱</string>
+    <string name="tt_quycach">規格</string>
+    <string name="tt_kho">倉庫</string>
+    <string name="tt_solo">批號</string>
+    <string name="tt_soluong">數量</string>
+
+    /*Menu Button*/
+    <string name="btnQR300">棧板掃描入庫(QR300)</string>
+    <string name="scanSttReturn">復原標籤狀態</string>
+
+    /* activity_main */
+    <string name="main_id">帳號：</string>
+    <string name="main_pwd">密碼：</string>
+    <string name="main_ok">確定</string>
+    <string name="main_cancel">取消</string>
+    <string name="main_E01">請輸入帳號</string>
+    <string name="main_E02">帳號密碼錯誤</string>
+    <string name="main_E03">連線錯誤</string>
+    <string name="main_language">語言</string>
+    <string name="main_stay_logged">保持登入</string>
+
+    /*check version*/
+    <string name="ver_curr_version">當前版本: </string>
+    <string name="ver_new_version">新版本：</string>
+    <string name="ver_install">請安裝!</string>
+    <string name="ver_soft_update">軟件更新</string>
+    <string name="ver_update">更新</string>
+    <string name="ver_downloading">正在下載</string>
+    <string name="ver_please_wait">請稍後...</string>
+
+    <string name="E01">帳號密碼錯誤</string>
+    <string name="E02">連線錯誤</string>
+    <string name="E10">請輸入帳號</string>
+
+    /*QR300*/
+    <string name="btnonlinecheck">更新</string>
+    <string name="tqra01">工單</string>
+    <string name="tqra02">已掃總數</string>
+    <string name="tqra03">未掃總數</string>
+    <string name="tqra04">條碼總數</string>
+    <string name="tqrb01">工單號碼</string>
+    <string name="tqrb02">序號</string>
+    <string name="tqrb02_1">序</string>
+    <string name="tqrb03">料號</string>
+    <string name="tqrb04">規格</string>
+    <string name="tqrb05">數量</string>
+    <string name="tcount">已掃：</string>
+    <string name="delete">清除資料</string>
+    <string name="upload">上傳資料</string>
+    <string name="update">上傳結果</string>
+    <string name="tj05">發料單號</string>
+    <string name="tj06">移轉單號</string>
+    <string name="tj07">入庫單號</string>
+    <string name="E03">無資料</string>
+    <string name="E04">顯示錯誤</string>
+    <string name="E05">標籤已掃</string>
+    <string name="E06">新增錯誤</string>
+    <string name="E07">標籤已上傳</string>
+    <string name="E08">工單錯誤</string>
+    <string name="E09">刪除失敗</string>
+    <string name="M01">資料上傳</string>
+    <string name="M02">確定上傳資料?</string>
+    <string name="M03">確定</string>
+    <string name="M04">取消</string>
+    <string name="M05">刪除資料</string>
+    <string name="M06">QRCode資料</string>
+    <string name="M07">後製資訊有少，請至csft620補齊後再執行轉檔</string>
+    <string name="M08">上傳成功</string>
+    <string name="M09">上傳失敗</string>
+    <string name="M10">確定刪除全部資料?</string>
+    <string name="M11">錯誤</string>
+    <string name="M12">離線作業無法刪除</string>
+    <string name="M13">確認離線資料是否更新</string>
+
+    <string name="btnQR301">棧板掃描\n查詢(QR301)</string>
+    <string name="stt1">極板工單資訊</string>
+    <string name="stt2">工單編號</string>
+    <string name="stt3">品名\n規格</string>
+    <string name="stt4">工單資訊(已過帳)</string>
+    <string name="stt5">標籤資訊</string>
+    <string name="stt6">狀態</string>
+    <string name="stt7">極板數量</string>
+    <string name="stt8">標籤張數</string>
+    <string name="stt9">標籤應減少數量</string>
+    <string name="stt10">工單資訊(未確認)</string>
+    <string name="stt11">發料 (asfi511)</string>
+    <string name="stt12">入庫 (asft620)</string>
+    <string name="stt13">報工 (asft700)</string>
+    <string name="stt14">工作站</string>
+    <string name="stt15">報工</string>
+    <string name="stt16">報廢</string>
+    <string name="stt17">生產數量</string>
+    <string name="stt18">已發數量</string>
+    <string name="stt19">完工數量</string>
+    <string name="stt20">報廢數量</string>
+    <string name="stt21">已減少</string>
+    <string name="stt22">標籤卡明細狀況</string>
+
+    <string name="tc_plb002">標籤卡序號</string>
+    <string name="tc_plb004">標準每盒\n數量</string>
+    <string name="tc_plb005">標準每鐵架\n放幾盒</string>
+    <string name="tc_plb006">標準每鐵架\n數量</string>
+    <string name="tc_plb021">已減少數量</string>
+    <string name="tc_plb014">掃描日期</string>
+    <string name="tc_plb013">正常狀況</string>
+    <string name="tc_plb013_0">無效</string>
+    <string name="tc_plb013_1">已列印</string>
+    <string name="tc_plb013_2">已掃瞄</string>
+    <string name="tc_plb013_3">轉檔中</string>
+    <string name="tc_plb013_4">已轉檔</string>
+    <string name="tc_plb013_5">已入庫</string>
+
+    \*QR210 - aimt301 *\
+    <string name="btnQR210">倉庫掃描\n發料(QR210)</string>
+    <string name="M14">確定執行作業: 單據 </string>
+    <string name="M15">確認刪除筆資料</string>
+    <string name="M16">更新資料到TIPTOP系統</string>
+    <string name="M17">請先掃描卡號與確認已收料</string>
+    <string name="M18">請先掃驗證物料</string>
+    <string name="M19">若取消已選擇的設定也取消</string>
+    <string name="M20">確認是否變更發料倉，儲位，批號？？</string>
+    <string name="M21">請先選倉庫才按確定</string>
+
+    <string name="yes">確認</string>
+    <string name="no">取消</string>
+    <string name="E11">系統無此筆資料</string>
+    <string name="E12">還有物料未掃描，請先掃好。</string>
+    <string name="E13">請先選要發料的倉庫</string>
+    <string name="E14">庫存量已為0</string>
+    <string name="E15">發料量不能為0</string>
+    <string name="E16">單據不能空白</string>
+    <string name="E17">無此筆資料,或單據已過帳！</string>
+    <string name="E18">在清單已有選過這個倉庫，不能重複</string>
+    <string name="E19">發料量 > 庫存量</string>
+    <string name="E20">此卡號不存在</string>
+
+    <string name="asfi511_menu">發料 (asfi511)</string>
+    <string name="aimt324_menu">調撥 (aimt324)</string>
+    <string name="aimt301_menu">雜發 (aimt301)</string>
+    <string name="check_goods">點貨</string>
+    <string name="openWareHouseList">選擇發料庫</string>
+    <string name="delLvItem">刪除筆資料</string>
+
+    <string name="str_scanview_1">單據資訊</string>
+    <string name="str_scanview_2">單據編號：</string>
+    <string name="str_scanview_3">單據日期：</string>
+    <string name="str_scanview_4">部門編號：</string>
+    <string name="qr210_col01">項次</string>
+    <string name="qr210_col02">料號</string>
+    <string name="qr210_col03">料號-品名/規格</string>
+    <string name="qr210_col041">倉庫-儲位-庫存量\n批號</string>
+    <string name="qr210_col05">數量-單位</string>
+    <string name="qr210_col06">已掃描</string>
+
+    <string name="option01">拋轉</string>
+    <string name="option02">保存</string>
+    <string name="option03">清空</string>
+
+    <string name="switchDes">新增單外資料</string>
+    <string name="switchOn">開</string>
+    <string name="switchOff">關</string>
+
+
+    <string name="kho">倉庫</string>
+    <string name="vitri">儲位</string>
+    <string name="solo">批號</string>
+    <string name="soluong">數量</string>
+    <string name="donvi">單位</string>
+    <string name="chon">選擇</string>
+    <string name="slUses">發料量</string>
+    <string name="items_info">物料資訊</string>
+    <string name="btnConfirm">設定</string>
+    <string name="btnCancel">放棄</string>
+</resources>

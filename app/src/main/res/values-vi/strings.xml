@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SXL_APP</string>
+
+    <string name="btn_ok">Xác nhận</string>
+    <string name="btn_cancel">Hủy bỏ</string>
+    <string name="btn_clean">Làm trống</string>
+    <string name="btn_print">In</string>
+    <string name="tt_hangmuc">Hạng mục</string>
+    <string name="tt_mvl">Mã vật liệu</string>
+    <string name="tt_ten">Tên vật liệu</string>
+    <string name="tt_quycach">Quy cách</string>
+    <string name="tt_kho">Kho</string>
+    <string name="tt_solo">Số lô</string>
+    <string name="tt_soluong">Số lượng</string>
+
+    /*Menu Button*/
+    <string name="btnQR300">Quét nhập kho lá chì(QR300)</string>
+    <string name="scanSttReturn">Phục hồi\ntrạng thái</string>
+
+
+    /* activity_main */
+    <string name="main_id">Tài khoản：</string>
+    <string name="main_pwd">Mật khẩu：</string>
+    <string name="main_ok">Xác nhận</string>
+    <string name="main_cancel">Hủy bỏ</string>
+    <string name="main_E01">Xin nhập số tài khoản</string>
+    <string name="main_E02">Tài khoản hoặc mật khẩu không đúng</string>
+    <string name="main_E03">Liên kết máy chủ thất bại</string>
+    <string name="main_language">Ngôn ngữ</string>
+    <string name="main_stay_logged">Lưu tài khoản</string>
+
+    /*check version*/
+    <string name="ver_curr_version">Phiên bản hiện tại : </string>
+    <string name="ver_new_version">Phiên bản mới：</string>
+    <string name="ver_install">Xin hãy cài đặt!</string>
+    <string name="ver_soft_update">Cập nhật phần mềm</string>
+    <string name="ver_update">Cập nhật</string>
+    <string name="ver_downloading">Đang cập nhật</string>
+    <string name="ver_please_wait">Xin đợi...</string>
+
+    <string name="E01">Tài khoản hoặc mật khẩu không đúng</string>
+    <string name="E02">Liên kết máy chủ thất bại</string>
+    <string name="E10">Xin nhập số tài khoản</string>
+
+    /*QR300*/
+    <string name="btnonlinecheck">更新</string>
+    <string name="tqra01">Đơn công</string>
+    <string name="tqra02">Tổng SL đã quét</string>
+    <string name="tqra03">Tổng SL chưa quét</string>
+    <string name="tqra04">Tổng tem</string>
+    <string name="tqrb01">Mã đơn công</string>
+    <string name="tqrb02">STT</string>
+    <string name="tqrb02_1">STT</string>
+    <string name="tqrb03">Mã vật liệu</string>
+    <string name="tqrb04">Quy cách</string>
+    <string name="tqrb05">Số lượng</string>
+    <string name="tcount">Đã quét：</string>
+    <string name="delete">Xóa\ntất cả</string>
+    <string name="upload">Tải lên\nhệ thống</string>
+    <string name="update">Kết quả\ntải lên</string>
+    <string name="tj05">Mã đơn phát liệu</string>
+    <string name="tj06">Mã đơn điều động</string>
+    <string name="tj07">Mã đơn nhập kho</string>
+    <string name="E03">Không có dữ liệu</string>
+    <string name="E04">Hiển thị thất bại</string>
+    <string name="E05">Tem đã được quét</string>
+    <string name="E06">Thêm mới thất bại</string>
+    <string name="E07">Tem đã được tải lên máy chủ</string>
+    <string name="E08">Mã đơn công không đúng</string>
+    <string name="E09">Xóa thất bại</string>
+    <string name="M01">Tải dữ liệu</string>
+    <string name="M02">Xác nhận tải dữ liệu lên hệ thống?</string>
+    <string name="M03">Xác nhận</string>
+    <string name="M04">Hủy bỏ</string>
+    <string name="M05">Xóa bỏ dữ liệu</string>
+    <string name="M06">Dữ liệu QRCode</string>
+    <string name="M07">Chưa bù dữ liệu liên quan ở cây csft620 không thể chuyển</string>
+    <string name="M08">Tải lên thành công</string>
+    <string name="M09">Tải lên thất bại</string>
+    <string name="M10">Xác nhận xóa tất cả dữ liệu?</string>
+    <string name="M11">Lỗi</string>
+    <string name="M12">Không thể xóa khi trong trạng thái mạng offline</string>
+    <string name="M13">Xác nhận dữ liệu offline có được cập nhật hay không</string>
+
+    <string name="btnQR301">Quét kiểm tra\ntem lá chì(QR301)</string>
+    <string name="stt1">Thông tin đơn công lá chì</string>
+    <string name="stt2">Mã\nđơn công</string>
+    <string name="stt3">Tên\nQuy cách</string>
+    <string name="stt4">Thông tin đơn công</string>
+    <string name="stt5">Thông tin tem</string>
+    <string name="stt6">Trạng thái</string>
+    <string name="stt7">Số lượng lá chì</string>
+    <string name="stt8">Số lượng con tem</string>
+    <string name="stt9">Số lượng chưa giảm trừ</string>
+    <string name="stt10">Thông tin đơn chưa xác nhận</string>
+    <string name="stt11">Phát liệu (asfi511)</string>
+    <string name="stt12">Nhập kho (asft620)</string>
+    <string name="stt13">Hoàn công (asft700)</string>
+    <string name="stt14">Trạm</string>
+    <string name="stt15">Báo công</string>
+    <string name="stt16">Báo phế</string>
+
+    <string name="stt17">SL sản xuất</string>
+    <string name="stt18">SL phát liệu</string>
+    <string name="stt19">SL hoàn thành</string>
+    <string name="stt20">SL báo phế</string>
+    <string name="stt21">Đã giảm trừ</string>
+    <string name="stt22">Danh sách tem lá chì</string>
+
+    <string name="tc_plb002">Mã tem</string>
+    <string name="tc_plb004">TC mỗi kết</string>
+    <string name="tc_plb005">TC kết\ntrên mỗi khung</string>
+    <string name="tc_plb006">SL TC\nmỗi khung</string>
+    <string name="tc_plb021">SL\nđã giảm trừ</string>
+    <string name="tc_plb014">Ngày quét</string>
+    <string name="tc_plb013">Trạng thái\ntem</string>
+    <string name="tc_plb013_0">Vô hiệu</string>
+    <string name="tc_plb013_1">Đã Phát sinh</string>
+    <string name="tc_plb013_2">Đã quét</string>
+    <string name="tc_plb013_3">Chờ chuyển</string>
+    <string name="tc_plb013_4">Đã chuyển</string>
+    <string name="tc_plb013_5">Đã nhập kho</string>
+
+    \*QR210 - aimt301 *\
+    <string name="btnQR210">Kho quét\nphát liệu(QR210)</string>
+    <string name="M14">Xác nhận thực hiện hành động: Mã chứng từ </string>
+    <string name="M15">Xác nhận xóa dòng dữ liệu</string>
+    <string name="M16">Cập nhật dữ liệu lên TIPTOP</string>
+    <string name="M17">Xin quét mã nhân viên\nvà xác nhận đã nhận hàng</string>
+    <string name="M18">Xin quét xác thực vật liệu trước khi thực hiện thao tác khác</string>
+    <string name="M19">Nếu bạn thoát, các cài đặt đã chọn cũng bị hủy</string>
+    <string name="M20">Xác nhận có thay đổi Kho,vị trí lưu, và số lô hay không??</string>
+    <string name="M21">Vui lòng chọn kho trước khi nhấn xác nhận</string>
+
+    <string name="yes">Có</string>
+    <string name="no">Không</string>
+    <string name="E11">Hệ thống không có dữ liệu này</string>
+    <string name="E12">Hãy quét xác thực tất cả vật liệu trong danh sách</string>
+    <string name="E13">Hãy chọn kho phát hàng</string>
+    <string name="E14">Tồn kho là 0,không thể phát liệu</string>
+    <string name="E15">Số lượng phát liệu không thể là 0</string>
+    <string name="E16">Đơn chứng từ không được trống</string>
+    <string name="E17">Không có đơn chứng từ hoặc đơn đã được sang sổ</string>
+    <string name="E18">kho đã được chọn trong danh sách không thể chọn trùng lặp</string>
+    <string name="E19">SL phát liệu > SL tồn kho</string>
+    <string name="E20">Mã nhân viên không tồn tại</string>
+
+    <string name="asfi511_menu">Phát liệu (asfi511)</string>
+    <string name="aimt324_menu">Điều kho (aimt324)</string>
+    <string name="aimt301_menu">Phát khác (aimt301)</string>
+    <string name="check_goods">Kiểm hàng</string>
+    <string name="openWareHouseList">Chọn kho phát hàng</string>
+    <string name="delLvItem">Xóa dòng dữ liệu</string>
+
+    <string name="str_scanview_1">Thông tin chứng từ</string>
+    <string name="str_scanview_2">Mã chứng từ：</string>
+    <string name="str_scanview_3">Ngày chứng từ：</string>
+    <string name="str_scanview_4">Mã bộ phận：</string>
+    <string name="qr210_col01">STT</string>
+    <string name="qr210_col02">MVL</string>
+    <string name="qr210_col03">MVL-Tên SP\nQuy cách</string>
+    <string name="qr210_col041">Kho-Vị trí-SL tồn kho\nSố lô</string>
+    <string name="qr210_col05">Số lượng\nĐơn vị</string>
+    <string name="qr210_col06">Quét phát liệu</string>
+
+    <string name="option01">Cập nhật hệ thống</string>
+    <string name="option02">Lưu đơn</string>
+    <string name="option03">Xóa bỏ</string>
+
+    <string name="switchDes">Thêm mới hạng mục</string>
+    <string name="switchOn">Bật</string>
+    <string name="switchOff">Tắt</string>
+
+    <string name="kho">Kho</string>
+    <string name="vitri">Vị trí</string>
+    <string name="solo">Số lô</string>
+    <string name="soluong">Số lượng</string>
+    <string name="donvi">Đơn vị</string>
+    <string name="chon">Chọn</string>
+    <string name="slUses">Số lượng\nxuất kho</string>
+    <string name="items_info">Thông tin vật liệu</string>
+    <string name="btnConfirm">Xác nhận</string>
+    <string name="btnCancel">Hủy</string>
+</resources>
