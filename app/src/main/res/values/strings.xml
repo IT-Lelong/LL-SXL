@@ -43,6 +43,7 @@
 
     /*QR300*/
     <string name="btnonlinecheck">更新</string>
+    <string name="auto_create_order">自動產生領料單</string>
     <string name="tqra01">工單</string>
     <string name="tqra02">已掃總數</string>
     <string name="tqra03">未掃總數</string>

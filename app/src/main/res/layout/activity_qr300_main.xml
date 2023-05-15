@@ -36,17 +36,35 @@
                 android:text="@string/update"
                 android:background="@drawable/button_type_nomal_midnight"
                 android:textColor="@color/white"
+
                 android:layout_margin="5dp"/>
 
-            <Button
-                android:id="@+id/upload"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/upload"
-                android:background="@drawable/button_type_nomal_midnight"
-                android:textColor="@color/white"
-                android:layout_margin="5dp"/>
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/upload"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_type_nomal_midnight"
+                    android:text="@string/upload"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+                <CheckBox
+                    android:id="@+id/cb_autoCreateOrder"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/auto_create_order" />
+
+            </LinearLayout>
+
         </LinearLayout>
 
         <SurfaceView
@@ -54,7 +72,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -104,7 +123,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1.5"
-        android:background="#A9EDBB"/>
+        android:background="@color/YellowLight"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -151,6 +170,6 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:background="#A9EDBB"/>
+        android:background="@color/YellowLight"/>
 
 </LinearLayout>

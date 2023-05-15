@@ -11,7 +11,7 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:background">@drawable/boder_title_view</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:padding">3dp</item>
     </style>
 

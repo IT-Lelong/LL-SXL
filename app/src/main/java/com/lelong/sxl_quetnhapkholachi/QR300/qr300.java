@@ -90,6 +90,7 @@ public class qr300 extends AppCompatActivity {
     JSONObject ujobject; //上傳資料
     View layout; //自訂dialog
     String chkstring;
+    CheckBox cb_autoCreateOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,6 +189,8 @@ public class qr300 extends AppCompatActivity {
         delete = (Button) findViewById(R.id.delete);
         upload = (Button) findViewById(R.id.upload);
         updata = (Button) findViewById(R.id.updata);
+        cb_autoCreateOrder = (CheckBox) findViewById(R.id.cb_autoCreateOrder);
+        cb_autoCreateOrder.setChecked(false);
 
         db = new qr300DB(this);
         db.open();
@@ -322,14 +325,22 @@ public class qr300 extends AppCompatActivity {
                         if (db.upload(ID) == true && uploadchk > 0) {
                             Cursor j = db.getAll_b1();
                             jsonupload = cur2Json(j);
-
+                            String g_create = "N";
                             try {
                                 ujobject = new JSONObject();
                                 ujobject.put("udate", uDate);
                                 ujobject.put("ujson", jsonupload);
+
+                                //是否產生領料單 Có tạo đơn lãnh hàng trên cimt510 không?
+                                if(cb_autoCreateOrder.isChecked()){
+                                    g_create = "Y";
+                                }
+                                ujobject.put("cjson", g_create);
+
                             } catch (JSONException e) {
                                 uploadchk = 0;
                             }
+
                             String jArry = upload_all("http://172.16.40.20/" + Constant_Class.server + "/QR300/qr300_upload.php");
                             if (jArry.equals("false")) {
                                 uploadchk = 0;
@@ -459,7 +470,7 @@ public class qr300 extends AppCompatActivity {
                                             thread1.join();
                                         } catch (InterruptedException e) {
                                         }
-                                        thread2.start();
+                                        /*thread2.start();
                                         try {
                                             thread2.join();
                                         } catch (InterruptedException e) {
@@ -468,7 +479,7 @@ public class qr300 extends AppCompatActivity {
                                         try {
                                             thread3.join();
                                         } catch (InterruptedException e) {
-                                        }
+                                        }*/
                                         thread4.start();
                                         try {
                                             thread4.join();
@@ -725,7 +736,7 @@ public class qr300 extends AppCompatActivity {
         try {
             if (cursor_a != null && cursor_a.getCount() >= 0) {
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.qr300_view_a, cursor_a,
-                        new String[]{"0", "qra01", "qra02", "qra03", "qra04"}, new int[]{R.id.qra00, R.id.qra01, R.id.qra02, R.id.qra03, R.id.qra04}, 0);
+                        new String[]{"_id", "qra01", "qra02", "qra03", "qra04"}, new int[]{R.id.qra00, R.id.qra01, R.id.qra02, R.id.qra03, R.id.qra04}, 0);
 
                 adapter.setViewBinder(new SimpleCursorAdapter.ViewBinder() {
                     @Override
@@ -742,7 +753,7 @@ public class qr300 extends AppCompatActivity {
 
                 qralist.setAdapter(adapter);
                 SimpleCursorAdapter adapter2 = new SimpleCursorAdapter(this, R.layout.qr300_view_b, cursor_b,
-                        new String[]{"0", "qrb01", "qrb02", "qrb03", "qrb04", "qrb05"}, new int[]{R.id.qrb00, R.id.qrb01, R.id.qrb02, R.id.qrb03, R.id.qrb04, R.id.qrb05}, 0);
+                        new String[]{"_id", "qrb01", "qrb02", "qrb03", "qrb04", "qrb05"}, new int[]{R.id.qrb00, R.id.qrb01, R.id.qrb02, R.id.qrb03, R.id.qrb04, R.id.qrb05}, 0);
 
                 adapter2.setViewBinder((view, cursor, columnIndex) -> {
                     if (view.getId() == R.id.qrb00) {

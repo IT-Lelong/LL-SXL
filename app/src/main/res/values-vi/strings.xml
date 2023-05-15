@@ -44,7 +44,8 @@
     <string name="E10">Xin nhập số tài khoản</string>
 
     /*QR300*/
-    <string name="btnonlinecheck">更新</string>
+    <string name="btnonlinecheck">Cập nhật</string>
+    <string name="auto_create_order">Tạo đơn lãnh hàng</string>
     <string name="tqra01">Đơn công</string>
     <string name="tqra02">SL đã quét</string>
     <string name="tqra03">SL chưa quét</string>
@@ -58,7 +59,7 @@
     <string name="tcount">Đã quét：</string>
     <string name="delete">Xóa\ntất cả</string>
     <string name="upload">Tải lên\nhệ thống</string>
-    <string name="update">Kết quả\ntải lên</string>
+    <string name="update">Kiểm tra\nkết quả tải lên</string>
     <string name="tj05">Mã đơn phát liệu</string>
     <string name="tj06">Mã đơn điều động</string>
     <string name="tj07">Mã đơn nhập kho</string>
