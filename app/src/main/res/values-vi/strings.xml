@@ -16,7 +16,7 @@
 
     /*Menu Button*/
     <string name="btnQR300">Quét nhập kho lá chì(QR300)</string>
-    <string name="scanSttReturn">Phục hồi\ntrạng thái</string>
+    <string name="scanSttReturn">Phục hồi\ntrạng thái tem</string>
 
 
     /* activity_main */
@@ -46,8 +46,8 @@
     /*QR300*/
     <string name="btnonlinecheck">更新</string>
     <string name="tqra01">Đơn công</string>
-    <string name="tqra02">Tổng SL đã quét</string>
-    <string name="tqra03">Tổng SL chưa quét</string>
+    <string name="tqra02">SL đã quét</string>
+    <string name="tqra03">SL chưa quét</string>
     <string name="tqra04">Tổng tem</string>
     <string name="tqrb01">Mã đơn công</string>
     <string name="tqrb02">STT</string>
