@@ -61,7 +61,7 @@
 
         <activity
             android:name=".QR300.qr300"
-            android:screenOrientation="fullSensor"/>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

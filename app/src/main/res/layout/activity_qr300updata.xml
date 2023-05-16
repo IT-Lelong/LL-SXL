@@ -1,91 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/YellowLight"
     tools:context=".QR300.qr300updata">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tqra01"/>
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj02"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tj01"
-        app:layout_constraintStart_toEndOf="@+id/tj01"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tqrb03"/>
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj03"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tj01"
-        app:layout_constraintStart_toEndOf="@+id/tj02"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tqrb05"/>
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj05"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tj01"
-        app:layout_constraintStart_toEndOf="@+id/tj03"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tj05"/>
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj06"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tj01"
-        app:layout_constraintStart_toEndOf="@+id/tj05"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tj06"/>
-    <TextView
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/tj07"
-        app:layout_constraintBaseline_toBaselineOf="@+id/tj01"
-        app:layout_constraintStart_toEndOf="@+id/tj06"
-        android:background="#3F51B5"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/tj07"/>
-    <HorizontalScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/tj07"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/tj01"
-        app:layout_constraintTop_toBottomOf="@+id/tj01"
-        app:layout_constraintVertical_bias="0.0"
-        android:background="#A9EDBB"
-        >
-        <ListView
-            android:id="@+id/jsonlist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-    </HorizontalScrollView>
+        <TextView
+            android:id="@+id/tj01"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tqra01"
+            android:theme="@style/title" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tj02"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tqrb03"
+            android:theme="@style/title" />
+
+        <TextView
+            android:id="@+id/tj03"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tqrb05"
+            android:theme="@style/title" />
+
+        <TextView
+            android:id="@+id/tj05"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tj05"
+            android:theme="@style/title" />
+
+        <TextView
+            android:id="@+id/tj06"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tj06"
+            android:theme="@style/title" />
+
+        <TextView
+            android:id="@+id/tj07"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tj07"
+            android:theme="@style/title" />
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/jsonlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

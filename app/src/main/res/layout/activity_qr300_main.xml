@@ -86,7 +86,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:text="@string/tqrb02"
+            android:text="@string/tqrb02_1"
             android:theme="@style/title" />
 
         <TextView
@@ -136,7 +136,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5"
-            android:text="@string/tqrb02"
+            android:text="@string/tqrb02_1"
             android:theme="@style/title"/>
 
         <TextView
@@ -152,7 +152,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/tqrb02_1"
+            android:text="@string/tqrb02"
             android:theme="@style/title" />
 
         <TextView
@@ -167,7 +167,7 @@
 
     <ListView
         android:id="@+id/qrblist"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
         android:background="@color/YellowLight"/>

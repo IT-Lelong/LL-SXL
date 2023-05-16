@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import com.lelong.sxl_quetnhapkholachi.R;
 import java.util.Locale;
@@ -28,6 +29,9 @@ public class qr300updata extends AppCompatActivity {
         setLanguage();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr300updata);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         jlist=(ListView)findViewById(R.id.jsonlist);
 

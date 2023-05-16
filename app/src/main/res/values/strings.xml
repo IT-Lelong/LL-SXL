@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SXL_APP</string>
+    <string name="app_name">SXL APP</string>
 
     <string name="btn_ok">確定</string>
     <string name="btn_cancel">取消</string>
@@ -72,7 +72,7 @@
     <string name="M02">確定上傳資料?</string>
     <string name="M03">確定</string>
     <string name="M04">取消</string>
-    <string name="M05">刪除資料</string>
+    <string name="M05">刪除資料 和還原</string>
     <string name="M06">QRCode資料</string>
     <string name="M07">後製資訊有少，請至csft620補齊後再執行轉檔</string>
     <string name="M08">上傳成功</string>

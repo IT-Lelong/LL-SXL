@@ -82,7 +82,6 @@ public class qr300 extends AppCompatActivity {
     int oksound, errorsound;
     int countb; //單身總數
     TextView vcount;
-    CheckBox onlinecheck; //離線作業
     Button btnonlineupdate;
     JSONArray jsononlinedata; //更新資料
     int mYear, mMonth, mDay; //系統日期
@@ -125,7 +124,7 @@ public class qr300 extends AppCompatActivity {
 
         //設定dialog畫面
         //LayoutInflater inflater=(LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        //=inflater.inflate(R.layout.qr300_dialog01,(ViewGroup) findViewById(R.id.layout_dialog01));
+        //layout=inflater.inflate(R.layout.qr300_dialog01,(ViewGroup) findViewById(R.id.layout_dialog01));
         surfaceView.setOnClickListener(surclick);
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -198,85 +197,59 @@ public class qr300 extends AppCompatActivity {
         ERRORPool = new SoundPool.Builder().build();
         oksound = OKPool.load(qr300.this, R.raw.ok, 1);
         errorsound = ERRORPool.load(qr300.this, R.raw.error, 1);
+
     }
 
     //點擊刪除按鈕
     private Button.OnClickListener btndelListener = new Button.OnClickListener() {
         public void onClick(View view) {
-            if (onlinecheck.isChecked() == true) {
-                AlertDialog.Builder builder = new
-                        AlertDialog.Builder(qr300.this);
-                builder.setCancelable(false);
-                builder.setTitle(getString(R.string.M11));
-                builder.setMessage(getString(R.string.M12));
-                builder.setNegativeButton((getString(R.string.M03)), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-                builder.show();
-            } else if (db.geta() > 0) {
-                AlertDialog.Builder builder = new
-                        AlertDialog.Builder(qr300.this);
-                builder.setCancelable(false);
-                builder.setTitle(getString(R.string.M11));
-                builder.setMessage(getString(R.string.M13));
-                builder.setNegativeButton((getString(R.string.M03)), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-                builder.show();
-            } else {
-                AlertDialog.Builder builder = new
-                        AlertDialog.Builder(qr300.this);
-                builder.setCancelable(false);
-                builder.setTitle(getString(R.string.M05));
-                builder.setMessage(getString(R.string.M10));
-                builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                    }
-                });
-                builder.setPositiveButton(getString(R.string.M03), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                try {
-                                    Cursor j = db.getAll_d();
-                                    jsonupload = cur2Json(j);
-                                    String del = deleteqrcodeAll("http://172.16.40.20/" + Constant_Class.server + "/QR300/deleteqrcodeAll.php");
-                                    if (del.equals("true")) {
+            AlertDialog.Builder builder = new
+                    AlertDialog.Builder(qr300.this);
+            builder.setCancelable(false);
+            builder.setTitle(getString(R.string.M05));
+            builder.setMessage(getString(R.string.M10));
+            builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            builder.setPositiveButton(getString(R.string.M03), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                                Cursor j = db.getAll_d();
+                                jsonupload = cur2Json(j);
+                                String del = deleteqrcodeAll("http://172.16.40.20/" + Constant_Class.server + "/QR300/deleteqrcodeAll.php");
+                                if (del.equals("true")) {
 
 
-                                    } else {
-                                        Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E09), Toast.LENGTH_LONG);
-                                        alert.show();
-                                    }
-                                } catch (Exception e) {
-
-                                } finally {
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            db.close();
-                                            db.open();
-                                            cursor_a = db.getAll_a();
-                                            cursor_b = db.getAll_b();
-                                            UpdateAdapter(cursor_a, cursor_b);
-                                        }
-                                    });
+                                } else {
+                                    Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E09), Toast.LENGTH_LONG);
+                                    alert.show();
                                 }
+                            } catch (Exception e) {
 
+                            } finally {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        db.close();
+                                        db.open();
+                                        cursor_a = db.getAll_a();
+                                        cursor_b = db.getAll_b();
+                                        UpdateAdapter(cursor_a, cursor_b);
+                                    }
+                                });
                             }
-                        }).start();
-                    }
-                });
-                builder.show();
-            }
+
+                        }
+                    }).start();
+                }
+            });
+            builder.show();
         }
     };
     //點擊上傳按鈕
@@ -332,7 +305,7 @@ public class qr300 extends AppCompatActivity {
                                 ujobject.put("ujson", jsonupload);
 
                                 //是否產生領料單 Có tạo đơn lãnh hàng trên cimt510 không?
-                                if(cb_autoCreateOrder.isChecked()){
+                                if (cb_autoCreateOrder.isChecked()) {
                                     g_create = "Y";
                                 }
                                 ujobject.put("cjson", g_create);
@@ -429,19 +402,13 @@ public class qr300 extends AppCompatActivity {
                                             c.set(year, month, day);
                                             SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
                                             uDate = format.format(c.getTime());
-
                                         }
-
                                     }, mYear, mMonth, mDay);
                                     dlgDatePicker.setCancelable(false);
                                     dlgDatePicker.show();
-
                                 } catch (Exception e) {
 
-                                } finally {
-
                                 }
-
                             }
                         });
                         qr300.this.runOnUiThread(new Runnable() {
@@ -634,61 +601,46 @@ public class qr300 extends AppCompatActivity {
                     nqrb04 = qrb04.getText().toString();
                     //判斷是否為離線資料
                     if (nqrb04.length() > 0) {
-                        //判斷是否離線作業
-                        if (onlinecheck.isChecked() == true) {
-                            AlertDialog.Builder builder = new
-                                    AlertDialog.Builder(qr300.this);
-                            builder.setCancelable(false);
-                            builder.setTitle(getString(R.string.M11));
-                            builder.setMessage(getString(R.string.M12));
-                            builder.setNegativeButton((getString(R.string.M03)), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                }
-                            });
-                            builder.show();
-                        } else {
-                            AlertDialog.Builder builder = new
-                                    AlertDialog.Builder(qr300.this);
-                            builder.setTitle(getString(R.string.M05));
-                            builder.setMessage(getString(R.string.tqrb01) + nqrb01 + " " + getString(R.string.tqrb02) + nqrb02);
-                            builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                }
-                            });
-                            builder.setPositiveButton(getString(R.string.M03), new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            try {
-                                                String del = deleteqrcode("http://172.16.40.20/" + Constant_Class.server + "/QR300/deleteqrcode.php?qr01=" + nqrb01 + "&qr02=" + nqrb02);
-                                                if (del.equals("true")) {
-                                                    db.delete(nqrb01, nqrb02);
-                                                    cursor_a = db.getAll_a();
-                                                    cursor_b = db.get(nqrb01);
-                                                    runOnUiThread(new Runnable() {
-                                                        @Override
-                                                        public void run() {
-                                                            UpdateAdapter(cursor_a, cursor_b);
-                                                        }
-                                                    });
-                                                } else {
-                                                    Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E09), Toast.LENGTH_LONG);
-                                                    alert.show();
-                                                }
-                                            } catch (Exception e) {
-
+                        AlertDialog.Builder builder = new
+                                AlertDialog.Builder(qr300.this);
+                        builder.setTitle(getString(R.string.M05));
+                        builder.setMessage(getString(R.string.tqrb01) + nqrb01 + " " + getString(R.string.tqrb02) + nqrb02);
+                        builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                            }
+                        });
+                        builder.setPositiveButton(getString(R.string.M03), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                new Thread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        try {
+                                            String del = deleteqrcode("http://172.16.40.20/" + Constant_Class.server + "/QR300/deleteqrcode.php?qr01=" + nqrb01 + "&qr02=" + nqrb02);
+                                            if (del.equals("true")) {
+                                                db.delete(nqrb01, nqrb02);
+                                                cursor_a = db.getAll_a();
+                                                cursor_b = db.get(nqrb01);
+                                                runOnUiThread(new Runnable() {
+                                                    @Override
+                                                    public void run() {
+                                                        UpdateAdapter(cursor_a, cursor_b);
+                                                    }
+                                                });
+                                            } else {
+                                                Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E09), Toast.LENGTH_LONG);
+                                                alert.show();
                                             }
+                                        } catch (Exception e) {
 
                                         }
-                                    }).start();
-                                }
-                            });
-                            builder.show();
-                        }
+
+                                    }
+                                }).start();
+                            }
+                        });
+                        builder.show();
 
                     } else {
                         AlertDialog.Builder builder = new
@@ -792,37 +744,8 @@ public class qr300 extends AppCompatActivity {
             int qr02_index = qr300_code.indexOf('_', qr01_index + 1);
             final String qr01 = qr300_code.substring(0, qr01_index);
             final String qr02 = qr300_code.substring(qr01_index + 1, qr02_index);
-            //判斷是否為離線作業
-            if (onlinecheck.isChecked() == true) {
-                if (db.getb(qr01, qr02) > 0) {
-                    ERRORPool.play(errorsound, 1, 1, 0, 0, 1);
-                    Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E05), Toast.LENGTH_LONG);
-                    alert.show();
-
-                } else {
-                    String qra01 = qr01;
-                    double qrb02 = Integer.parseInt(qr02);
-                    if (db.append2(qra01, qrb02) > 0) {
-                        cursor_a = db.getAll_a();
-                        cursor_b = db.getAll_b();
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                UpdateAdapter(cursor_a, cursor_b);
-                            }
-                        });
-                        OKPool.play(oksound, 1, 1, 0, 0, 1);
-
-                    } else {
-                        ERRORPool.play(errorsound, 1, 1, 0, 0, 1);
-                        Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E06), Toast.LENGTH_LONG);
-                        alert.show();
-                    }
-                }
-            } else {
-                //QRCODE資料確認
-                new qr300_b().execute("http://172.16.40.20/" + Constant_Class.server + "/QR300/getqrcode.php?qr01=" + qr01 + "&qr02=" + qr02);
-            }
+            //QRCODE資料確認
+            new qr300_b().execute("http://172.16.40.20/" + Constant_Class.server + "/QR300/getqrcode.php?qr01=" + qr01 + "&qr02=" + qr02);
         } catch (Exception e) {
             Toast alert = Toast.makeText(getApplicationContext(), "ERROR" + e, Toast.LENGTH_LONG);
             alert.show();
@@ -1200,10 +1123,14 @@ public class qr300 extends AppCompatActivity {
     private SurfaceView.OnClickListener surclick = new SurfaceView.OnClickListener() {
         @Override
         public void onClick(View view) {
+
+
             AlertDialog.Builder builder = new AlertDialog.Builder(qr300.this);
             builder.setTitle(getString(R.string.M14));
             builder.setCancelable(false);
-            builder.setView(layout);
+            LayoutInflater inflater = LayoutInflater.from(qr300.this);
+            View _dialog = inflater.inflate(R.layout.qr300_dialog01, null);
+            builder.setView(_dialog);
             builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -1217,8 +1144,8 @@ public class qr300 extends AppCompatActivity {
                     String code1 = null;
                     String code2 = null;
                     EditText edtext1, edtext2;
-                    edtext1 = (EditText) (layout).findViewById(R.id.eqra01);
-                    edtext2 = (EditText) (layout).findViewById(R.id.eqra02);
+                    edtext1 = (EditText) (_dialog).findViewById(R.id.eqra01);
+                    edtext2 = (EditText) (_dialog).findViewById(R.id.eqra02);
                     code1 = edtext1.getText().toString();
                     code2 = edtext2.getText().toString();
                     code = code1 + "_" + code2 + "_";

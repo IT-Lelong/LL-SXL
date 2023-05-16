@@ -11,7 +11,8 @@
         android:layout_weight="0.5"
         android:gravity="center"
         android:textSize="12sp"
-        android:background="@drawable/border_listview"/>
+        android:background="@drawable/border_listview"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/qra01"
@@ -20,7 +21,8 @@
         android:layout_weight="2"
         android:gravity="center"
         android:textSize="12sp"
-        android:background="@drawable/border_listview"/>
+        android:background="@drawable/border_listview"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/qra02"
@@ -29,7 +31,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="12sp"
-        android:background="@drawable/border_listview"/>
+        android:background="@drawable/border_listview"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/qra03"
@@ -38,7 +41,8 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="12sp"
-        android:background="@drawable/border_listview"/>
+        android:background="@drawable/border_listview"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/qra04"
@@ -47,5 +51,6 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="12sp"
-        android:background="@drawable/border_listview"/>
+        android:background="@drawable/border_listview"
+        android:textStyle="bold"/>
 </LinearLayout>

@@ -4,7 +4,7 @@ public class Constant_Class {
     public static final String UpdateName = "SXL_APP";
     public static final String Update_serverAPK = "SXL_APP.apk";
     //public static final String Package_Name = "com.lelong.originalfile";
-    public static final String server = "PHP";
+    public static final String server = "PHPtest";
 
     public static String androidID = "";
 

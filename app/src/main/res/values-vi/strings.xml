@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SXL_APP</string>
+    <string name="app_name">SXL APP</string>
 
     <string name="btn_ok">Xác nhận</string>
     <string name="btn_cancel">Hủy bỏ</string>
@@ -45,13 +45,13 @@
 
     /*QR300*/
     <string name="btnonlinecheck">Cập nhật</string>
-    <string name="auto_create_order">Tạo đơn lãnh hàng</string>
+    <string name="auto_create_order">Tạo đơn\nlãnh hàng</string>
     <string name="tqra01">Đơn công</string>
     <string name="tqra02">SL đã quét</string>
     <string name="tqra03">SL chưa quét</string>
     <string name="tqra04">Tổng tem</string>
     <string name="tqrb01">Mã đơn công</string>
-    <string name="tqrb02">STT</string>
+    <string name="tqrb02">Mã tem</string>
     <string name="tqrb02_1">STT</string>
     <string name="tqrb03">Mã vật liệu</string>
     <string name="tqrb04">Quy cách</string>
@@ -74,12 +74,12 @@
     <string name="M02">Xác nhận tải dữ liệu lên hệ thống?</string>
     <string name="M03">Xác nhận</string>
     <string name="M04">Hủy bỏ</string>
-    <string name="M05">Xóa bỏ dữ liệu</string>
+    <string name="M05">Phục hồi dữ liệu</string>
     <string name="M06">Dữ liệu QRCode</string>
     <string name="M07">Chưa bù dữ liệu liên quan ở cây csft620 không thể chuyển</string>
     <string name="M08">Tải lên thành công</string>
     <string name="M09">Tải lên thất bại</string>
-    <string name="M10">Xác nhận xóa tất cả dữ liệu?</string>
+    <string name="M10">Xác nhận phục hồi tất cả dữ liệu tem đang có trên màn hình?</string>
     <string name="M11">Lỗi</string>
     <string name="M12">Không thể xóa khi trong trạng thái mạng offline</string>
     <string name="M13">Xác nhận dữ liệu offline có được cập nhật hay không</string>
