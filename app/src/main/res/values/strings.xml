@@ -130,6 +130,7 @@
     <string name="M19">若取消已選擇的設定也取消</string>
     <string name="M20">確認是否變更發料倉，儲位，批號？？</string>
     <string name="M21">請先選倉庫才按確定</string>
+    <string name="M22">主機連接失敗</string>
 
     <string name="yes">確認</string>
     <string name="no">取消</string>

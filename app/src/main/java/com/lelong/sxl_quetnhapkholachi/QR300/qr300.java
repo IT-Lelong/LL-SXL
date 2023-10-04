@@ -56,6 +56,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -80,16 +81,11 @@ public class qr300 extends AppCompatActivity {
     Locale locale;
     SoundPool OKPool, ERRORPool;
     int oksound, errorsound;
-    int countb; //單身總數
-    TextView vcount;
-    Button btnonlineupdate;
     JSONArray jsononlinedata; //更新資料
     int mYear, mMonth, mDay; //系統日期
     String uDate; //設定日期
     JSONObject ujobject; //上傳資料
-    View layout; //自訂dialog
     String chkstring;
-    CheckBox cb_autoCreateOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,8 +119,6 @@ public class qr300 extends AppCompatActivity {
         cameraSource = new CameraSource.Builder(this, barcodeDetector).setAutoFocusEnabled(true).build();
 
         //設定dialog畫面
-        //LayoutInflater inflater=(LayoutInflater)this.getSystemService(LAYOUT_INFLATER_SERVICE);
-        //layout=inflater.inflate(R.layout.qr300_dialog01,(ViewGroup) findViewById(R.id.layout_dialog01));
         surfaceView.setOnClickListener(surclick);
         surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
@@ -188,8 +182,6 @@ public class qr300 extends AppCompatActivity {
         delete = (Button) findViewById(R.id.delete);
         upload = (Button) findViewById(R.id.upload);
         updata = (Button) findViewById(R.id.updata);
-        cb_autoCreateOrder = (CheckBox) findViewById(R.id.cb_autoCreateOrder);
-        cb_autoCreateOrder.setChecked(false);
 
         db = new qr300DB(this);
         db.open();
@@ -224,8 +216,6 @@ public class qr300 extends AppCompatActivity {
                                 jsonupload = cur2Json(j);
                                 String del = deleteqrcodeAll("http://172.16.40.20/" + Constant_Class.server + "/QR300/deleteqrcodeAll.php");
                                 if (del.equals("true")) {
-
-
                                 } else {
                                     Toast alert = Toast.makeText(getApplicationContext(), getString(R.string.E09), Toast.LENGTH_LONG);
                                     alert.show();
@@ -271,6 +261,7 @@ public class qr300 extends AppCompatActivity {
                 builder.show();
             } else {
                 //檢查入庫量是否超過
+
                 final Thread chkqty = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -303,13 +294,7 @@ public class qr300 extends AppCompatActivity {
                                 ujobject = new JSONObject();
                                 ujobject.put("udate", uDate);
                                 ujobject.put("ujson", jsonupload);
-
-                                //是否產生領料單 Có tạo đơn lãnh hàng trên cimt510 không?
-                                if (cb_autoCreateOrder.isChecked()) {
-                                    g_create = "Y";
-                                }
                                 ujobject.put("cjson", g_create);
-
                             } catch (JSONException e) {
                                 uploadchk = 0;
                             }
@@ -319,6 +304,8 @@ public class qr300 extends AppCompatActivity {
                                 uploadchk = 0;
                             } else if (jArry.equals("nodata")) {
                                 uploadchk = -1;
+                            } else if (jArry.equals("notConnect")) {
+                                uploadchk = -4;
                             } else {
                                 try {
                                     JSONObject Json = new JSONObject(jArry);
@@ -437,16 +424,6 @@ public class qr300 extends AppCompatActivity {
                                             thread1.join();
                                         } catch (InterruptedException e) {
                                         }
-                                        /*thread2.start();
-                                        try {
-                                            thread2.join();
-                                        } catch (InterruptedException e) {
-                                        }
-                                        thread3.start();
-                                        try {
-                                            thread3.join();
-                                        } catch (InterruptedException e) {
-                                        }*/
                                         thread4.start();
                                         try {
                                             thread4.join();
@@ -461,6 +438,8 @@ public class qr300 extends AppCompatActivity {
                                             builder.setMessage(getString(R.string.M15));
                                         } else if (uploadchk == -3) {
                                             builder.setMessage(getString(R.string.M16) + chkstring);
+                                        } else if (uploadchk == -4) {
+                                            builder.setMessage(getString(R.string.M22));
                                         } else if (uploadchk == 1) {
                                             builder.setMessage(getString(R.string.M08));
                                         } else {
@@ -604,7 +583,7 @@ public class qr300 extends AppCompatActivity {
                         AlertDialog.Builder builder = new
                                 AlertDialog.Builder(qr300.this);
                         builder.setTitle(getString(R.string.M05));
-                        builder.setMessage(getString(R.string.tqrb01) + nqrb01 + " " + getString(R.string.tqrb02) + nqrb02);
+                        builder.setMessage(getString(R.string.tqrb01) + ": " + nqrb01 + " " + getString(R.string.tqrb02) + ": " + nqrb02);
                         builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -749,7 +728,6 @@ public class qr300 extends AppCompatActivity {
         } catch (Exception e) {
             Toast alert = Toast.makeText(getApplicationContext(), "ERROR" + e, Toast.LENGTH_LONG);
             alert.show();
-
         } finally {
             firstDetected = true;
         }
@@ -950,6 +928,12 @@ public class qr300 extends AppCompatActivity {
     //上傳資料
     public String upload_all(String apiUrl) {
         HttpURLConnection conn = null;
+
+        if (!isHostReachable("172.16.40.20")) {
+            // Máy chủ không khả dụng, xử lý tùy ý
+            return "notConnect";
+        }
+
         try {
             URL url = new URL(apiUrl);
             conn = (HttpURLConnection) url.openConnection();
@@ -980,6 +964,17 @@ public class qr300 extends AppCompatActivity {
             }
         }
     }
+
+    public static boolean isHostReachable(String host) {
+        try {
+            InetAddress address = InetAddress.getByName(host);
+            return address.isReachable(5000); // Kiểm tra tính khả dụng trong 5 giây
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     //寄發MAIL
     public String qr300_mail(String apiUrl) {
