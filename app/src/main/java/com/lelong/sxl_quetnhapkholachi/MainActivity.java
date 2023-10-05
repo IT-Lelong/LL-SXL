@@ -208,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             ID = editID.getText().toString();
             PASSWORD = editPassword.getText().toString();
-            if (onlinecheck.isChecked()) {
+            //if (onlinecheck.isChecked()) {
                 //離線登入
                 if (ID.length() > 0) {
                     Intent login = new Intent();
@@ -221,9 +221,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast alert = Toast.makeText(MainActivity.this, "請輸入帳號", Toast.LENGTH_LONG);
                     alert.show();
                 }
-            } else {
-                login("http://172.16.40.20/" + Constant_Class.server + "/loginJson.php?ID=" + ID + "&PASSWORD=" + PASSWORD);
-            }
+            //} else {
+               // login("http://172.16.40.20/" + Constant_Class.server + "/loginJson.php?ID=" + ID + "&PASSWORD=" + PASSWORD);
+            //}
         }
     };
 

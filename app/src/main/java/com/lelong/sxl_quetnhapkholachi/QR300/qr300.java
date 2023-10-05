@@ -24,12 +24,14 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +61,9 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -84,6 +88,7 @@ public class qr300 extends AppCompatActivity {
     JSONArray jsononlinedata; //更新資料
     int mYear, mMonth, mDay; //系統日期
     String uDate; //設定日期
+    String g_kho;
     JSONObject ujobject; //上傳資料
     String chkstring;
 
@@ -289,12 +294,13 @@ public class qr300 extends AppCompatActivity {
                         if (db.upload(ID) == true && uploadchk > 0) {
                             Cursor j = db.getAll_b1();
                             jsonupload = cur2Json(j);
-                            String g_create = "N";
+                            //String g_create = "N";
                             try {
                                 ujobject = new JSONObject();
+                                ujobject.put("sp_kho", g_kho);
                                 ujobject.put("udate", uDate);
                                 ujobject.put("ujson", jsonupload);
-                                ujobject.put("cjson", g_create);
+                                //ujobject.put("cjson", g_create);
                             } catch (JSONException e) {
                                 uploadchk = 0;
                             }
@@ -378,21 +384,8 @@ public class qr300 extends AppCompatActivity {
                             @Override
                             public void run() {
                                 try {
-                                    final Calendar c = Calendar.getInstance();
-                                    mYear = c.get(Calendar.YEAR);
-                                    mMonth = c.get(Calendar.MONTH);
-                                    mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                                    final DatePickerDialog dlgDatePicker = new DatePickerDialog(qr300.this, new DatePickerDialog.OnDateSetListener() {
-                                        @Override
-                                        public void onDateSet(DatePicker view, int year, int month, int day) {
-                                            c.set(year, month, day);
-                                            SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-                                            uDate = format.format(c.getTime());
-                                        }
-                                    }, mYear, mMonth, mDay);
-                                    dlgDatePicker.setCancelable(false);
-                                    dlgDatePicker.show();
+
                                 } catch (Exception e) {
 
                                 }
@@ -401,10 +394,48 @@ public class qr300 extends AppCompatActivity {
                         qr300.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                AlertDialog.Builder builder = new
+                                /*AlertDialog.Builder builder = new
                                         AlertDialog.Builder(qr300.this);
                                 builder.setTitle(getString(R.string.M01));
-                                builder.setMessage(getString(R.string.M02));
+                                builder.setMessage(getString(R.string.M02));*/
+                                AlertDialog.Builder builder = new AlertDialog.Builder(qr300.this);
+                                builder.setTitle(getString(R.string.M01));
+                                builder.setCancelable(false);
+                                LayoutInflater inflater = LayoutInflater.from(qr300.this);
+                                View _dialog02 = inflater.inflate(R.layout.qr300_dialog02, null);
+                                builder.setView(_dialog02);
+                                Spinner sp_kho;
+                                EditText edt_date;
+                                sp_kho = (Spinner) (_dialog02).findViewById(R.id.sp_kho);
+                                edt_date = (EditText) (_dialog02).findViewById(R.id.edt_date);
+                                List<String> kho_List = new ArrayList<>();
+                                kho_List.add("D04");
+                                kho_List.add("D35");
+                                ArrayAdapter<String> kho_adapter = new ArrayAdapter<>(qr300.this, android.R.layout.simple_dropdown_item_1line, kho_List);
+                                sp_kho.setAdapter(kho_adapter);
+                                edt_date.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        // Lấy ngày hiện tại
+                                        Calendar calendar = Calendar.getInstance();
+                                        int year = calendar.get(Calendar.YEAR);
+                                        int month = calendar.get(Calendar.MONTH);
+                                        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+                                        // Tạo DatePickerDialog
+                                        DatePickerDialog datePickerDialog = new DatePickerDialog(qr300.this, new DatePickerDialog.OnDateSetListener() {
+                                            @Override
+                                            public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDayOfMonth) {
+                                                // Xử lý khi người dùng chọn ngày
+                                                calendar.set(selectedYear, selectedMonth, selectedDayOfMonth);
+                                                SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+                                                uDate = format.format(calendar.getTime());
+                                                edt_date.setText(uDate);
+                                            }
+                                        }, year, month, dayOfMonth);
+                                        datePickerDialog.show();
+                                    }
+                                });
                                 builder.setNegativeButton(getString(R.string.M04), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -414,6 +445,7 @@ public class qr300 extends AppCompatActivity {
                                 builder.setPositiveButton(getString(R.string.M03), new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
+                                        g_kho = sp_kho.getSelectedItem().toString();
                                         chkqty.start();
                                         try {
                                             chkqty.join();
